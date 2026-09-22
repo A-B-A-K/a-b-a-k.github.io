@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+<div id="mouse-glow" aria-hidden="true"></div>
+
+<button id="wx-toggle" title="weather in Berlin" aria-expanded="false">&#x263C;</button>
+<div id="wx-card" role="status">
+  <div class="wx-place">berlin, outside</div>
+  <div class="wx-temp" id="wx-temp">&hellip;</div>
+  <div class="wx-desc" id="wx-desc">looking out the window</div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <span class="lamp" aria-hidden="true">&#x1FA94;</span>
+    <div class="head-row">
+      <div>
+        <h1><a href="#">Alexandre B. A. Kontouli</a></h1>
+        <p class="tagline">notes on machine learning, written after dark</p>
+        <div class="social">
+          <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener"
+             title="find me on linkedin" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+          <a href="{{ site.substack_url }}" target="_blank" rel="noopener"
+             title="my writing on substack" aria-label="Substack">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </a>
+          <a href="{{ site.scholar_url }}" target="_blank" rel="noopener"
+             title="my papers on google scholar" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.749-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div id="diorama" role="button" tabindex="0" title="what I'm probably doing right now (click to peek at the other scenes)">
+      <svg viewBox="0 0 120 90" aria-hidden="true">
+        <!-- ===== scene: morning (breakfast) ===== -->
+        <g class="scene" id="sc-morning">
+          <line x1="20" y1="70" x2="100" y2="70" class="ln"/>
+          <line x1="30" y1="70" x2="30" y2="82" class="ln"/>
+          <line x1="90" y1="70" x2="90" y2="82" class="ln"/>
+          <circle cx="44" cy="46" r="7" class="skin"/>
+          <path d="M37 70 Q37 56 44 56 Q51 56 51 70" class="skin"/>
+          <rect x="66" y="60" width="12" height="10" rx="2" class="amb"/>
+          <path class="steam s1" d="M70 56 q-2 -4 0 -8"/>
+          <path class="steam s2" d="M74 56 q2 -4 0 -8"/>
+          <g class="wxfx fx-rain">
+            <rect x="82" y="8" width="30" height="34" rx="2" class="win"/>
+            <line x1="97" y1="8" x2="97" y2="42" class="win"/>
+            <line x1="82" y1="25" x2="112" y2="25" class="win"/>
+            <line x1="88" y1="14" x2="87" y2="23" class="drop"/>
+            <line x1="96" y1="11" x2="95" y2="20" class="drop d2"/>
+            <line x1="104" y1="16" x2="103" y2="25" class="drop d3"/>
+            <line x1="108" y1="28" x2="107" y2="37" class="drop d2"/>
+          </g>
+          <g class="wxfx fx-snow">
+            <rect x="82" y="8" width="30" height="34" rx="2" class="win"/>
+            <line x1="97" y1="8" x2="97" y2="42" class="win"/>
+            <line x1="82" y1="25" x2="112" y2="25" class="win"/>
+            <circle cx="88" cy="16" r="1.5" class="flake"/>
+            <circle cx="99" cy="13" r="1.3" class="flake f2"/>
+            <circle cx="106" cy="20" r="1.4" class="flake f3"/>
+            <circle cx="92" cy="31" r="1.3" class="flake f2"/>
+          </g>
+        </g>
+        <!-- ===== scene: day (at the desk) ===== -->
+        <g class="scene" id="sc-day">
+          <line x1="18" y1="68" x2="102" y2="68" class="ln"/>
+          <line x1="26" y1="68" x2="26" y2="82" class="ln"/>
+          <line x1="94" y1="68" x2="94" y2="82" class="ln"/>
+          <g class="typing">
+            <circle cx="42" cy="44" r="7" class="skin"/>
+            <path d="M35 68 Q35 54 42 54 Q49 54 49 68" class="skin"/>
+          </g>
+          <path d="M62 68 L64 56 L84 56 L86 68 Z" class="laptop"/>
+          <rect x="62" y="67" width="26" height="2" rx="1" class="amb"/>
+          <circle cx="74" cy="61" r="1.6" class="screenlight"/>
+          <g class="wxfx fx-rain">
+            <rect x="84" y="6" width="30" height="34" rx="2" class="win"/>
+            <line x1="99" y1="6" x2="99" y2="40" class="win"/>
+            <line x1="84" y1="23" x2="114" y2="23" class="win"/>
+            <line x1="90" y1="12" x2="89" y2="21" class="drop"/>
+            <line x1="98" y1="9" x2="97" y2="18" class="drop d2"/>
+            <line x1="106" y1="14" x2="105" y2="23" class="drop d3"/>
+            <line x1="110" y1="26" x2="109" y2="35" class="drop d2"/>
+          </g>
+          <g class="wxfx fx-snow">
+            <rect x="84" y="6" width="30" height="34" rx="2" class="win"/>
+            <line x1="99" y1="6" x2="99" y2="40" class="win"/>
+            <line x1="84" y1="23" x2="114" y2="23" class="win"/>
+            <circle cx="90" cy="14" r="1.5" class="flake"/>
+            <circle cx="101" cy="11" r="1.3" class="flake f2"/>
+            <circle cx="108" cy="18" r="1.4" class="flake f3"/>
+            <circle cx="94" cy="29" r="1.3" class="flake f2"/>
+          </g>
+        </g>
+        <!-- ===== scene: evening (park walk) ===== -->
+        <g class="scene" id="sc-evening">
+          <line x1="12" y1="78" x2="108" y2="78" class="ln"/>
+          <line x1="24" y1="78" x2="24" y2="58" class="ln"/>
+          <circle cx="24" cy="52" r="9" class="tree"/>
+          <line x1="96" y1="78" x2="96" y2="54" class="ln"/>
+          <circle cx="96" cy="47" r="11" class="tree"/>
+          <circle cx="104" cy="18" r="5" class="moon"/>
+          <g class="walker">
+            <circle cx="60" cy="52" r="7" class="skin"/>
+            <path d="M53 78 Q53 62 60 62 Q67 62 67 78" class="skin"/>
+            <g class="wxfx fx-rain">
+              <path class="umb-canopy" d="M49 44 Q60 34 71 44 Z"/>
+              <line x1="60" y1="44" x2="60" y2="52" class="umb-stick"/>
+            </g>
+          </g>
+          <g class="wxfx fx-rain">
+            <line x1="40" y1="16" x2="39" y2="24" class="drop"/>
+            <line x1="58" y1="10" x2="57" y2="18" class="drop d2"/>
+            <line x1="76" y1="16" x2="75" y2="24" class="drop d3"/>
+            <line x1="14" y1="24" x2="13" y2="32" class="drop d2"/>
+          </g>
+          <g class="wxfx fx-snow">
+            <circle cx="40" cy="18" r="1.4" class="flake"/>
+            <circle cx="60" cy="12" r="1.2" class="flake f2"/>
+            <circle cx="78" cy="20" r="1.3" class="flake f3"/>
+            <circle cx="16" cy="26" r="1.1" class="flake f2"/>
+          </g>
+        </g>
+        <!-- ===== scene: night (asleep) ===== -->
+        <g class="scene" id="sc-night">
+          <rect x="24" y="60" width="72" height="14" rx="4" class="bed"/>
+          <line x1="26" y1="74" x2="26" y2="82" class="ln"/>
+          <line x1="94" y1="74" x2="94" y2="82" class="ln"/>
+          <circle cx="36" cy="56" r="7" class="skin"/>
+          <rect x="44" y="52" width="50" height="10" rx="5" class="blanket"/>
+          <text class="zzz z1" x="70" y="40">z</text>
+          <text class="zzz z2" x="78" y="32">z</text>
+          <text class="zzz z3" x="86" y="24">z</text>
+          <g class="wxfx fx-rain">
+            <rect x="4" y="6" width="30" height="34" rx="2" class="win"/>
+            <line x1="19" y1="6" x2="19" y2="40" class="win"/>
+            <line x1="4" y1="23" x2="34" y2="23" class="win"/>
+            <line x1="10" y1="12" x2="9" y2="21" class="drop"/>
+            <line x1="18" y1="9" x2="17" y2="18" class="drop d2"/>
+            <line x1="26" y1="14" x2="25" y2="23" class="drop d3"/>
+            <line x1="30" y1="26" x2="29" y2="35" class="drop d2"/>
+          </g>
+          <g class="wxfx fx-snow">
+            <rect x="4" y="6" width="30" height="34" rx="2" class="win"/>
+            <line x1="19" y1="6" x2="19" y2="40" class="win"/>
+            <line x1="4" y1="23" x2="34" y2="23" class="win"/>
+            <circle cx="10" cy="14" r="1.5" class="flake"/>
+            <circle cx="21" cy="11" r="1.3" class="flake f2"/>
+            <circle cx="28" cy="18" r="1.4" class="flake f3"/>
+            <circle cx="14" cy="29" r="1.3" class="flake f2"/>
+          </g>
+        </g>
+      </svg>
+      <span id="diorama-caption">&hellip;</span>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true"  data-room="about">about</button>
+      <button class="tab" role="tab" aria-selected="false" data-room="writing">writing</button>
+      <button class="tab" role="tab" aria-selected="false" data-room="corner">comfy corner</button>
+    </div>
+  </header>
+
+  <!-- ==================== room: writing ==================== -->
+  <section class="room" id="room-writing" role="tabpanel">
+    <div class="writing-list">
+      {% capture writing_md %}{% include writing.md %}{% endcapture %}{{ writing_md | markdownify }}
+    </div>
+
+    <p class="elsewhere" style="margin-top:1.6rem">
+      These live on <a href="{{ site.substack_url }}" target="_blank" rel="noopener">my Substack</a> too.
+    </p>
+  </section>
+
+  <!-- ==================== room: comfy corner ==================== -->
+  <section class="room" id="room-corner" role="tabpanel">
+    <div class="corner-note">
+      {% capture corner_md %}{% include corner-note.md %}{% endcapture %}{{ corner_md | markdownify }}
+    </div>
+
+    <figure>
+      <div class="window-frame">
+        <iframe
+          src="https://epfl.roundshot.com/"
+          loading="lazy"
+          title="Live view over Lausanne from EPFL"></iframe>
+      </div>
+      <figcaption>the window &mdash; Lausanne, live. it&rsquo;s probably getting dark there too</figcaption>
+    </figure>
+
+    <div class="radio">
+      <div class="radio-head">
+        <span class="radio-light" aria-hidden="true"></span>
+        <span>the radio &mdash; lofi girl, shuffled. stays on while you wander the tabs</span>
+      </div>
+      <iframe id="sc-player"
+        src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Flofi_girl%2Fsets%2Flofi-hiphop&color=%23e8b04b&auto_play=false&show_comments=false&show_user=true&show_teaser=false&visual=false"
+        title="the radio: lofi girl playlist"
+        allow="autoplay; encrypted-media"></iframe>
+    </div>
+
+    {% comment %} fridge notes disabled for now — needs a proper anonymous-write
+       backend (see discussion: rate limiting, moderation). Re-enable by removing
+       this comment wrapper.
+    <div class="fridge">
+      <div class="radio-head">
+        <span class="radio-light" aria-hidden="true"></span>
+        <span>the fridge &mdash; notes people left on their way through</span>
+      </div>
+      <div class="notes">
+        {% for n in site.data.guestbook %}
+        <div class="note n{{ forloop.index0 | modulo: 3 | plus: 1 }}">{{ n.text }}
+          <span class="note-by">&mdash; {{ n.by }}</span></div>
+        {% endfor %}
+      </div>
+      <a class="leave-note"
+         href="{{ site.guestbook_repo }}/issues/new?title=a+note+for+the+fridge&labels=guestbook"
+         target="_blank" rel="noopener">+ leave a note</a>
+    </div>
+    {% endcomment %}
+  </section>
+
+  <!-- ==================== room: about ==================== -->
+  <section class="room lit" id="room-about" role="tabpanel">
+    <div class="about">
+      {% capture about_md %}{% include about.md %}{% endcapture %}{{ about_md | markdownify }}
+    </div>
+
+    <div class="now">
+      {% capture now_md %}{% include now.md %}{% endcapture %}{{ now_md | markdownify }}
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 &mdash; handmade, no tracking, warm light only</span>
+    <span>&#x1FA94;</span>
+  </footer>
+
+</div>
+
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

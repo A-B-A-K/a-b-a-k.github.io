@@ -1,0 +1,7 @@
+# jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# macos
+.DS_Store

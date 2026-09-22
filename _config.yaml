@@ -1,0 +1,19 @@
+title: Alexandre - late night notes
+description: notes on machine learning, written after dark
+
+# -- my links -- 
+url: "https://a-b-a-k.github.io"
+baseurl: ""
+
+substack_url: https://myname.substack.com
+linkedin_url: https://www.linkedin.com/myname
+scholar_url: https://scholar.google.com
+
+# -- jekyll plumbing --
+markdown: kramdown
+exclude:
+ - README.md
+ - serve.sh
+ - vendor
+ - Gemfile
+ - Gemfile.lock
