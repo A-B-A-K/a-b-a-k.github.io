@@ -5,9 +5,9 @@ description: notes on machine learning, written after dark
 url: "https://a-b-a-k.github.io"
 baseurl: ""
 
-substack_url: https://myname.substack.com
-linkedin_url: https://www.linkedin.com/myname
-scholar_url: https://scholar.google.com
+substack_url: https://substack.com/@alexandrebak
+linkedin_url: https://www.linkedin.com/in/alexandrebak/
+scholar_url: https://scholar.google.com/citations?user=DyTqVmMAAAAJ&hl=en
 
 # -- jekyll plumbing --
 markdown: kramdown
