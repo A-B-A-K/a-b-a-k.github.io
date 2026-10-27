@@ -1,3 +1,8 @@
+25 oct '26
+: [Where the time goes when you train your model](https://alexandrebak.substack.com/p/where-the-time-goes-when-you-train)
+  *An exploration of profiling and optimizing model training*
+
+
 27 sept '26
 : [The Codebook is a Polytope: Testing 2-bit Quantization for Vector Search](https://alexandrebak.substack.com/p/the-codebook-is-a-polytope-testing)
   *Replacing learned codebooks with geometry*
